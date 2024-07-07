@@ -44,7 +44,6 @@ public class KeelungSightsCrawler {
         try {
             Document doc = Jsoup.connect(url).get();
             Element pointArea = doc.select("div#point_area").first();
-//            System.out.println(pointArea);
             if (pointArea != null) {
                 String sightName = pointArea.select("meta[itemprop=name]").attr("content");
                 String category = doc.select("cite .point_type strong").text();
