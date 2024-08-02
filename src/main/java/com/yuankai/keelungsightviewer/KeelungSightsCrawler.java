@@ -11,19 +11,18 @@ import java.util.Map;
 import java.util.Objects;
 
 public class KeelungSightsCrawler {
-    static String docUrl = "https://www.travelking.com.tw/tourguide/taiwan/keelungcity/";
-    static Document doc;
-    static Elements zones;
-    static Map<String,Sight[]> items = new HashMap<>();
+    private final Document doc;
+    private Elements zones;
+    private final Map<String,Sight[]> items = new HashMap<>();
     public KeelungSightsCrawler() throws IOException {
         System.out.println("開始爬取");
+        String docUrl = "https://www.travelking.com.tw/tourguide/taiwan/keelungcity/";
         doc = Jsoup.connect(docUrl).get();
-//        System.out.println(doc);
-        Element guidePoint = doc.select("div#guide-point.tourgudes.fold").first();
-        if(guidePoint != null) {
+        try{
+            Element guidePoint = doc.select("div#guide-point.tourgudes.fold").first();
             zones = guidePoint.select("h4");
             for (Element z : zones) {
-                System.out.println(z.text());
+                System.out.println("已爬取 "+z.text());
                 Elements sitghtHrefs = Objects.requireNonNull(z.nextElementSibling()).select("li a");
                 Sight[] sightArray = new Sight[sitghtHrefs.size()];
                 int i = 0;
@@ -35,16 +34,19 @@ public class KeelungSightsCrawler {
                 }
                 items.put(z.text(), sightArray);
             }
+
+        }catch (NullPointerException e){
+            e.getMessage();
         }
-        System.out.println(zones);
-//        Element root = doc.
+
+
     }
     private Sight getSightDetails(String url) {
         Sight sight = new Sight();
         try {
             Document doc = Jsoup.connect(url).get();
-            Element pointArea = doc.select("div#point_area").first();
-            if (pointArea != null) {
+            try{
+                Element pointArea = doc.select("div#point_area").first();
                 String sightName = pointArea.select("meta[itemprop=name]").attr("content");
                 String category = doc.select("cite .point_type strong").text();
                 String address = pointArea.select("meta[itemprop=address]").attr("content");
@@ -58,24 +60,24 @@ public class KeelungSightsCrawler {
                     description = description.substring(0, lastPeriodIndex + 1).trim();
                 }
 //                description = description.replaceAll("。", "。\n");
-
-                System.out.println(sightName);
-                System.out.println(category);
-                System.out.println(address);
-                System.out.println(photoURL);
-                System.out.println(description);
                 sight.setSightName(sightName);
                 sight.setCategory(category);
                 sight.setAddress(address);
                 sight.setPhotoUrl(photoURL);
                 sight.setDescription(description);
+            }catch (NullPointerException e){
+                e.getMessage();
             }
+
         } catch (IOException e) {
-            e.printStackTrace();
+            e.getMessage();
         }
         return sight;
     }
-    public static Sight[] getItem(String zoneName){
+    public Sight[] getItem(String zoneName)throws NullPointerException{
+        if(zoneName.charAt(zoneName.length()-1)!='區'){
+            zoneName+="區";
+        }
         return items.get(zoneName);
     }
 }
