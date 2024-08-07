@@ -3,17 +3,17 @@ package com.yuankai.keelungsightviewer;
 import java.io.Serializable;
 
 public class Sight implements Serializable {
+    private static final String defaultSightName = "Null";
+    private static final String defaultZone = "Null";
+    private static final String defaultCategory = "Null";
+    private static final String defaultPhotoUrl = "https://images.pexels.com/photos/1107717/pexels-photo-1107717.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+    private static final String defaultDescription = "Null";
     private String sightName;
     private String zone;
     private String category;
     private String photoUrl;
     private String description;
     private String address;
-    final private String defaultSightName = "Null";
-    final private String defaultZone = "Null";
-    final private String defaultCategory = "Null";
-    final private String defaultPhotoUrl = "https://images.pexels.com/photos/1107717/pexels-photo-1107717.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
-    final private String defaultDescription = "Null";
     public Sight() {
         sightName = defaultSightName;
         zone = defaultZone;
