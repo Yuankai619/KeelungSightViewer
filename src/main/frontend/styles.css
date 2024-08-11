@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.title{
+    @apply text-fontPrimary lg:text-5xl sm:text-3xl text-2xl font-extrabold text-center tracking-wide font-mono py-8 px-4;
+}
+
+.navbar-item{
+    @apply font-semibold text-center xl:min-w-[157px] text-base sm:text-lg md:text-2xl px-4 py-2 rounded-lg border-2 border-fontSecondary  text-fontPrimary hover:border-fontPrimary peer-checked:bg-fontPrimary peer-checked:text-background;
+}
+.card-area{
+    @apply grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 px-4 py-16 w-full  justify-center;
+}
+.card{
+    @apply bg-fontSecondary border-fontPrimary text-fontPrimary border-4 opacity-85 z-10 rounded-2xl backdrop-filter backdrop-blur-lg shadow-lg self-start  max-w-[400px] 2xl:max-w-[520px] pt-4 m-6;
+}
+.card-item-text{
+    @apply font-extrabold leading-loose  text-center font-mono ;
+}
+.card-button{
+    @apply bg-fontPrimary font-bold  text-cardBackground cursor-pointer leading-loose tracking-widest text-center px-4 rounded-full  peer-checked:mb-6 select-none mb-1;
+}
+html {
+    scrollbar-gutter: stable both-edges;
+}
+
+@layer utilities {
+    .scrollbar-transparent::-webkit-scrollbar {
+        width: 9px;
+    }
+
+    .scrollbar-transparent::-webkit-scrollbar-thumb {
+        background-color: #eaf4fcce;
+        border-radius: 10px;
+        border: 2px solid transparent;
+        background-clip: content-box;
+    }
+
+}

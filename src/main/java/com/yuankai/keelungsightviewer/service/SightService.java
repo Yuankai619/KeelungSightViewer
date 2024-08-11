@@ -31,7 +31,26 @@ public class SightService  {
         listSightRepository.deleteAllSight();
         KeelungSightsCrawler crawler = new KeelungSightsCrawler();
         for(Sight sight: crawler.getAllSights()){
+            sight.setPhotoUrl("https://images.pexels.com/photos/1107717/pexels-photo-1107717.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
             listSightRepository.insertSight(sight);
+        }
+    }
+
+    public void checkSightValid(List<Sight> all){
+        for(Sight s: all){
+            if(s.getSightName().isEmpty()){
+                s.setSightName(Sight.defaultSightName);
+            }
+            if(s.getZone().isEmpty()){
+                s.setZone(Sight.defaultZone);
+            }
+            if(s.getCategory().isEmpty()){
+                s.setCategory(Sight.defaultZone);
+            }
+            if(s.getPhotoUrl().isEmpty()){
+
+            }
+
         }
     }
 

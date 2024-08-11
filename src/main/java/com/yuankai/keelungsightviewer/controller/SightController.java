@@ -28,7 +28,14 @@ public class SightController {
         if(zone.charAt(zone.length()-1)!='區'){
             zone+="區";
         }
-        var sights = sightService.getSightByZone(zone);
+
+        List<Sight> sights = null;
+        try {
+            sights = sightService.getSightByZone(zone);
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            throw new RuntimeException(e);
+        }
         for(var sight : sights) {
             log.info(sight.toString());
         }

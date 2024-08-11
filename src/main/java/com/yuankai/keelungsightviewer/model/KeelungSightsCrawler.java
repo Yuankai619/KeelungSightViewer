@@ -21,11 +21,12 @@ public class KeelungSightsCrawler {
         Elements zones = Objects.requireNonNull(guidePoint.select("h4"));
 
         for (Element z : zones) {
-            log.info("已爬取 "+z.text());
+            log.info("爬取 "+z.text());
             Elements sitghtHrefs = Objects.requireNonNull(z.nextElementSibling()).select("li a");
             Sight[] sightArray = new Sight[sitghtHrefs.size()];
             int i = 0;
             for (Element href : sitghtHrefs) {
+                log.info("get attr: {}", href.attr("href"));
                 String detailUrl = "https://www.travelking.com.tw" + href.attr("href");
                 Sight sight = getSightDetails(detailUrl,z.text());
                 sightArray[i++] = sight;
@@ -36,7 +37,13 @@ public class KeelungSightsCrawler {
 
     }
     private Sight getSightDetails(String url,String zone) throws IOException {
-        Document doc = Jsoup.connect(url).get();
+        Document doc;
+        try{
+            doc = Jsoup.connect(url).timeout(10000).get();
+        }catch (IOException e){
+            log.warn("爬爛啦!!");
+            return Sight.getDefaultSight();
+        }
         Element pointArea = Objects.requireNonNull( doc.select("div#point_area").first());
         String sightName = pointArea.select("meta[itemprop=name]").attr("content");
         String category = doc.select("cite .point_type strong").text();

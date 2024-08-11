@@ -10,6 +10,12 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Sight implements Serializable {
+    public static final String defaultSightName = "Null";
+    public static final String defaultZone = "Null";
+    public static final String defaultCategory = "Null";
+    public static final String defaultPhotoUrl = "https://images.pexels.com/photos/1107717/pexels-photo-1107717.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+    public static final String defaultDescription = "Null";
+    public static final String defaultAddress = "Null";
     private String sightName;
     private String zone;
     private String category;
@@ -17,13 +23,16 @@ public class Sight implements Serializable {
     private String description;
     private String address;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Sight sight = (Sight) o;
-        return sightName.equals(sight.sightName);
+    public static Sight getDefaultSight() {
+        return new Sight(defaultSightName,defaultZone,defaultCategory,defaultPhotoUrl,defaultDescription,defaultAddress);
     }
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        Sight sight = (Sight) o;
+//        return sightName.equals(sight.sightName);
+//    }
 
 //    @Override
 //    public String toString() {

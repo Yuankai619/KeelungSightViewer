@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keelung Sight Viewer</title>
+    <link rel="stylesheet" href="/main.css">
+    <script src="/script.js"></script>
+</head>
+
+<body class="bg-background">
+<h1 class="title">Keelung Sight Viewer</h1>
+<div class="flex flex-wrap gap-6 justify-center px-4">
+    <label class="cursor-pointer" onclick="getData('中山')">
+        <input type="radio" id="zone1" name="zone" class="hidden peer" />
+        <div class="navbar-item">
+            中山區</div>
+    </label>
+    <label class="cursor-pointer" onclick="getData('信義')">
+        <input type="radio" id="zone2" name="zone" class="hidden peer" />
+        <div class="navbar-item">
+            信義區</div>
+    </label>
+    <label class="cursor-pointer" onclick="getData('仁愛')">
+        <input type="radio" id="zone3" name="zone" class="hidden peer" />
+        <div class="navbar-item">
+            仁愛區</div>
+    </label>
+    <label class="cursor-pointer" onclick="getData('中正')">
+        <input type="radio" id="zone4" name="zone" class="hidden peer" />
+        <div class="navbar-item">
+            中正區</div>
+    </label>
+    <label class="cursor-pointer" onclick="getData('安樂')">
+        <input type="radio" id="zone5" name="zone" class="hidden peer" />
+        <div class="navbar-item">
+            安樂區</div>
+    </label>
+    <label class="cursor-pointer" onclick="getData('七堵')">
+        <input type="radio" id="zone6" name="zone" class="hidden peer" />
+        <div class="navbar-item">
+            七堵區</div>
+    </label>
+    <label class="cursor-pointer" onclick="getData('暖暖')">
+        <input type="radio" id="zone7" name="zone" class="hidden peer" />
+        <div class="navbar-item">
+            暖暖區</div>
+    </label>
+
+</div>
+
+
+<div id="card-area" class="card-area">
+
+</div>
+
+</body>
+
+</html>
