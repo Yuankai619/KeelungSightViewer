@@ -56,7 +56,7 @@ public class KeelungSightsCrawler {
         if (lastPeriodIndex != -1) {
             description = description.substring(0, lastPeriodIndex + 1).trim();
         }
-        return new Sight(sightName,zone,category,photoUrl,description,address);
+        return new Sight(null,sightName,zone,category,photoUrl,description,address);
     }
     public Sight[] getItemByZone(String zoneName){
         if(zoneName.charAt(zoneName.length()-1)!='區'){

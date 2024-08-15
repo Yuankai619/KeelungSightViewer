@@ -2,21 +2,6 @@
 module.exports = {
   important: true,
   mode: 'jit',
-  // purge: {
-  //   enabled: true,
-  //   content: [
-  //     "../resources/**/*.{html,js}",
-  //       "./src/**/*.{html,js}"
-  //   ],
-  //   options: {
-  //     safelist: [
-  //       // 使用通配符保留所有類名
-  //       // {
-  //         /.*/,peer,
-  //       // }
-  //     ],
-  //   },
-  // },
   content: ["../resources/**/*.{html,js}","./src/**/*.{html,js}","./src/main/resources/*.{html,js}"],
   theme: {
     colors:{

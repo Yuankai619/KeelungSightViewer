@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class KeelungSightViewerViewiApplication {
+public class KeelungSightViewerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(KeelungSightViewerViewiApplication.class, args);
+        SpringApplication.run(KeelungSightViewerApplication.class, args);
     }
 
 }
