@@ -13,16 +13,16 @@ jobs:
       - name: Check out the repository
         uses: actions/checkout@v2
 
-      - name: Log in to the Docker Hub registry
-        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
-
-      - name: Build the Docker image
-        run: |
-          docker build \
-            -t yuankai619/keelungsightviewer:latest .
-
-      - name: Push the Docker image to Docker Hub
-        run: docker push yuankai619/keelungsightviewer:latest
+#      - name: Log in to the Docker Hub registry
+#        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+#
+#      - name: Build the Docker image
+#        run: |
+#          docker build \
+#            -t yuankai619/keelungsightviewer:latest .
+#
+#      - name: Push the Docker image to Docker Hub
+#        run: docker push yuankai619/keelungsightviewer:latest
 
       - name: Set Heroku stack to container
         run: heroku stack:set container --app keelung-sight-viewer
@@ -36,9 +36,9 @@ jobs:
           docker_image: "yuankai619/keelungsightviewer:latest"
           usedocker: true
           docker_heroku_process_type: web
-          docker_build_args: |
-            DB_PASSWORD
-            DB_NAME
-        env:
-          DB_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-          DB_NAME: ${{ secrets.DOCKER_USERNAME }}
+#          docker_build_args: |
+#            DB_PASSWORD
+#            DB_NAME
+#        env:
+#          DB_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+#          DB_NAME: ${{ secrets.DOCKER_USERNAME }}
