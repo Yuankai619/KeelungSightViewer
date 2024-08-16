@@ -35,6 +35,6 @@ jobs:
           docker_build_args: |
             DB_PASSWORD
             DB_NAME
-          env:
-            DB_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-            DB_NAME: ${{ secrets.DOCKER_USERNAME }}
+        env:
+          DB_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          DB_NAME: ${{ secrets.DOCKER_USERNAME }}
