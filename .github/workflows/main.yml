@@ -19,8 +19,6 @@ jobs:
       - name: Build the Docker image
         run: |
           docker build \
-            --build-arg DB_PASSWORD=${{ secrets.DB_PASSWORD }} \
-            --build-arg DB_NAME=${{ secrets.DB_NAME }} \
             -t yuankai619/keelungsightviewer:latest .
 
       - name: Push the Docker image to Docker Hub
@@ -33,3 +31,10 @@ jobs:
           heroku_app_name: "keelung-sight-viewer"
           heroku_email: "01157116@email.ntou.edu.tw"
           docker_image: "yuankai619/keelungsightviewer:latest"
+          usedocker: true
+          docker_build_args: |
+            DB_PASSWORD
+            DB_NAME
+          env:
+            DB_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+            DB_NAME: ${{ secrets.DOCKER_USERNAME }}
