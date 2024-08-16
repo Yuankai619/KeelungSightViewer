@@ -25,3 +25,4 @@ gradle-app.setting
 /src/main/frontend/node_modules/
 /node/
 /log/
+.env
