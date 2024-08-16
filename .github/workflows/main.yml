@@ -36,9 +36,9 @@ jobs:
           docker_image: "yuankai619/keelungsightviewer:latest"
           usedocker: true
           docker_heroku_process_type: web
-#          docker_build_args: |
-#            DB_PASSWORD
-#            DB_NAME
-#        env:
-#          DB_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-#          DB_NAME: ${{ secrets.DOCKER_USERNAME }}
+          docker_build_args: |
+            DB_PASSWORD
+            DB_NAME
+        env:
+          DB_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          DB_NAME: ${{ secrets.DOCKER_USERNAME }}
