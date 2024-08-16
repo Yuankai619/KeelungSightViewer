@@ -28,11 +28,11 @@ jobs:
 
       - name: Install HerokuCLI
         run: curl https://cli-assets.heroku.com/install-ubuntu.sh | sh \
-            heroku login -i
+
 
       - name: Log in to Heroku
         run: heroku auth:${{ secrets.HEROKU_API_KEY }}
-        
+
 
 #      - name: Deploy to Heroku
 #        uses: akhileshns/heroku-deploy@v3.13.15
