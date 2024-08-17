@@ -27,14 +27,14 @@ public class SightService  {
 
     @PostConstruct
     public void init() throws IOException {
-        sightRepository.deleteAll();
-        KeelungSightsCrawler crawler = new KeelungSightsCrawler();
-        for(Sight sight: crawler.getAllSights()){
-            if(!ImageValidator.isImageUrlValid(sight.getPhotoUrl())){
-                sight.setPhotoUrl("https://images.pexels.com/photos/1107717/pexels-photo-1107717.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
-            }
-            sightRepository.insert(sight);
-        }
+//        sightRepository.deleteAll();
+//        KeelungSightsCrawler crawler = new KeelungSightsCrawler();
+//        for(Sight sight: crawler.getAllSights()){
+//            if(!ImageValidator.isImageUrlValid(sight.getPhotoUrl())){
+//                sight.setPhotoUrl("https://images.pexels.com/photos/1107717/pexels-photo-1107717.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+//            }
+//            sightRepository.insert(sight);
+//        }
     }
 
     public List<Sight> getSightByZone(String zone){

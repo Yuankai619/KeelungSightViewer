@@ -1,5 +1,5 @@
 async function getData(zone) {
-    const url = "http://localhost:8080/SightAPI?zone=";
+    const url = "/SightAPI?zone=";
     try {
         const response = await fetch(url+zone);
         // console.log(response);
