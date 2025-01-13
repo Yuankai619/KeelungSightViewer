@@ -1,4 +1,3 @@
-
 # Keelung sithgt viewer
 
 A responsive website about the Keelung city famous tourist spot.
@@ -9,8 +8,6 @@ Use a web crawler to scrape [TravelKing](https://www.travelking.com.tw/tourguide
 
 https://keelung-sight-viewer.yuankai.org/
 
-
-
 ## Tech Stack
 
 **Client :** `Html` `TailwindCSS` `javascript`
@@ -20,6 +17,7 @@ https://keelung-sight-viewer.yuankai.org/
 **Database :** `MonogoDB(Atlas)`
 
 **Deploy :** `Docker`
+
 ## Environment Variables
 
 To run this project, you will need to add the following environment variables to your .env file
@@ -29,7 +27,6 @@ To run this project, you will need to add the following environment variables to
 `DB_NAME` : the database name in Atlas
 
 `PORT` : the port to run
-
 
 ## Run Locally
 
@@ -59,9 +56,6 @@ Install frontend pakage
   npm run build watch
 ```
 
-
-
-
 ## Run on Docker
 
 **To run this project with docker, you can pull my docker image from docker hub**
@@ -78,12 +72,9 @@ Run with docker container
   docker container run -d -p:8080:8080 -e DB_PASSWORD={your_password} DB_NAME={your_name} PORT=8080 --name {your container name}
 ```
 
-
 ## Deployment
 
-To deploy this project on [KEROKU](https://www.heroku.com/), I use Github Action and convient tool : https://github.com/AkhileshNS/heroku-deploy
-
-
+I deploy to my self-host server by Github Actions
 
 ## API Reference
 
@@ -93,9 +84,9 @@ To deploy this project on [KEROKU](https://www.heroku.com/), I use Github Action
   GET /SightAPI?{zone}
 ```
 
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `zone` | `string` | **Required**. the zone about sights |
+| Parameter | Type     | Description                         |
+| :-------- | :------- | :---------------------------------- |
+| `zone`    | `string` | **Required**. the zone about sights |
 
 #### Get sights by category
 
@@ -103,9 +94,9 @@ To deploy this project on [KEROKU](https://www.heroku.com/), I use Github Action
   GET /SightCategoryAPI?{category}
 ```
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `category`      | `string` | **Required**. the category about sights |
+| Parameter  | Type     | Description                             |
+| :--------- | :------- | :-------------------------------------- |
+| `category` | `string` | **Required**. the category about sights |
 
 #### Insert one default Sight in Database
 
