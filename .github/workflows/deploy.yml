@@ -13,7 +13,7 @@ jobs:
             - name: Pull Docker image
               run: sudo docker pull yuankai619/keelungsightviewer:latest
             - name: Delete Old docker container
-              run: sudo docker rm -f ordernow-backend-container || true
+              run: sudo docker rm -f keelungsightviewer-container || true
             - name: Run Docker Container
               run: |
                   sudo docker run -d -p 8080:8080 \
